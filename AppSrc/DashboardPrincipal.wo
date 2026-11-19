@@ -1,0 +1,57 @@
+﻿Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebWidgetContainer.pkg
+Use cWebWidgetPalette.pkg
+
+Object oDashboardPrincipal is a cWebView
+    Set psCaption to "DashboardPrincipal"
+    Set pbServerOnShow to True
+    Set pbFillHeight to True
+    Set peViewType to vtUndefined
+    Set pbShowCaption to False
+    Set peStateMode to vsmOff   // 
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oWidgetContainer is a cWebWidgetContainer
+            Set pbServerOnToggleEditMode to True
+            
+            Procedure OnRegisterWidgets
+                // ToDo: Register your widgets here
+            End_Procedure
+           
+            Procedure OnToggleEditMode Boolean bEdit
+                Forward Send OnToggleEditMode bEdit
+                
+                WebSet pbRender of oWidgetsPanel to bEdit
+            End_Procedure
+            
+        End_Object
+
+        
+
+    End_Object
+    
+    Object oWidgetsPanel is a cWebPanel
+        Set piWidth to 200
+        Set pbRender to False
+        Set peRegion to prRight
+        Set psCSSClass to "WidgetPanel"
+        
+        Object oWlWidgets is a cWebWidgetPalette
+            Set piColumnSpan to 2
+            Set piColumnIndex to 10
+            Set phoWidgetContainer to oWidgetContainer
+        End_Object
+    End_Object
+    
+
+    Procedure OnLoad
+        Forward Send OnLoad
+        
+        Send LoadConfiguration of oWidgetContainer
+    End_Procedure
+
+End_Object
+

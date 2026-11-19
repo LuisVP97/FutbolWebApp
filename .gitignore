@@ -1,0 +1,14 @@
+﻿# Archivos temporales de DataFlex
+*.sws.lock
+*.tmp
+*.bak
+*.log
+
+# Archivos generados
+Programs/*.exe
+Programs/*.dbg
+Programs/*.tmp
+
+# Configuración local del editor
+.vscode/
+.idea/

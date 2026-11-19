@@ -1,0 +1,70 @@
+﻿
+Use cWebView.pkg
+Use cWebPanel.pkg
+Use cWebButton.pkg
+
+Object oDashboard is a cWebView
+    Set psCaption to "Panel principal de gestión de FutbolWebApp"
+    Set piColumnCount to 12
+    Set piWidth to 700
+
+    Object oWebMainPanel is a cWebPanel
+        Set piColumnCount to 12
+
+        Object oBtnEntrenadores is a cWebButton
+            Set psCaption to "Entrenadores"
+            Set piColumnSpan to 6
+
+            WebRegisterPath ntNavigateForward oSelectEntrenador
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
+
+        Object oBtnEquipos is a cWebButton
+            Set psCaption to "Equipos"
+            Set piColumnSpan to 6
+
+            WebRegisterPath ntNavigateForward oSelectEquipo
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
+
+        Object oBtnJugadores is a cWebButton
+            Set psCaption to "Jugadores"
+            Set piColumnSpan to 6
+
+            WebRegisterPath ntNavigateForward oSelectJugador
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
+
+        Object oBtnPosiciones is a cWebButton
+            Set psCaption to "Posiciones"
+            Set piColumnSpan to 6
+
+            WebRegisterPath ntNavigateForward oSelectPosicion
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
+
+        Object oBtnLigas is a cWebButton
+            Set psCaption to "Ligas"
+            Set piColumnSpan to 6
+
+            WebRegisterPath ntNavigateForward oSelectLiga
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+        End_Object
+
+    End_Object
+End_Object
